@@ -47,14 +47,14 @@ setup(
     name='setupreader',
     # extract version from module.
     version=__version__,
-    description="retrieve package specification from setup,py",
+    description="retrieve package specification from setup.py",
     long_description=__doc__,
     classifiers=[],
     keywords='',
     author='Lars van de Kerkhof',
     author_email='lars@permanentmarkers.nl',
-    url='',
-    license='',
+    url='https://github.com/specialunderwear/setupreader',
+    license='GPL',
     # include all packages in the egg, except the test package.
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     py_modules=['setupreader'],
