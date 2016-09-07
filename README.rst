@@ -22,7 +22,7 @@ makes it easy, just point it at setup.py and get a dict::
         "classifiers": [], 
         "entry_points": {
             "console_scripts": [
-                "read-setup = setupreader:main"
+                "setupreader = setupreader:main"
             ]
         }, 
         "name": "setupreader", 
