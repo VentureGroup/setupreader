@@ -42,9 +42,10 @@ def load(path):
         # if __name__ == '__main__'
 
         # let's try to find a function that looks like it guards setup.
-        functions = inspect.getmembers(setup_module, inspect.isfunction)
-        for name, fun in functions:
-            argspec = inspect.getargspec(fun)
+        functions_found_in_setup_module = inspect.getmembers(
+            setup_module, inspect.isfunction)
+        for name, candidate in functions_found_in_setup_module:
+            argspec = inspect.getargspec(candidate)
             # if the function is named 'main' and it receives no arguments, we
             # declare it found.
             # Also if this package was made by peopls without any knowledge or
@@ -52,9 +53,9 @@ def load(path):
             # something else as main. We will declare any function that is
             # defined inside the setup_module that received no arguments as a
             # find.
-            if (name == 'main' or inspect.getmodule(fun) == setup_module) and \
+            if (name == 'main' or inspect.getmodule(candidate) == setup_module) and \
                 len(argspec.args) == 0:
-                fun()
+                candidate()
                 break
         else: # we couldn't find anything resembling a guarded setup function.
             raise BrokenSetupException()
