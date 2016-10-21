@@ -60,8 +60,7 @@ def load(path):
         else: # we couldn't find anything resembling a guarded setup function.
             raise BrokenSetupException()
                 
-
-        return setupdict.result
+    return setupdict.result
 
 
 def main():
