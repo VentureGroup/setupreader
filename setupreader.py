@@ -6,6 +6,7 @@ import argparse
 
 import mock
 
+
 class BrokenSetupException(Exception):
     """
     setupreader can not find a setup function in your setup.py.
@@ -68,7 +69,7 @@ def main():
     p.add_argument('path', help="path to setup.py")
     args = p.parse_args()
 
-    print json.dumps(load(args.path), indent=4)
+    print(json.dumps(load(args.path), indent=4))
 
 
 if __name__ == '__main__':
